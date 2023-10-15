@@ -1,0 +1,28 @@
+<div style="text-align: center;">
+  <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)" novalidate>
+
+    <div class="mb-3">
+      <label for="name-id" class="form-label">User name</label>
+      <input type="text" class="form-control" id="name-id" aria-describedby="name-help"
+             ngModel name="username" #username="ngModel" required>
+      <div id="name-help" class="form-text">Name of the user.</div>
+
+      <div *ngIf="username.touched && username.invalid" class="alert alert-danger">
+        User name is required.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="email-id" class="form-label">Email address</label>
+      <input type="email" class="form-control" id="email-id" aria-describedby="email-help"
+             ngModel name="useremail" #useremail="ngModel" required>
+      <div id="email-help" class="form-text">We'll never share your email with anyone else.</div>
+
+      <div *ngIf="useremail.touched && useremail.invalid" class="alert alert-danger">
+        User email is required.
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
